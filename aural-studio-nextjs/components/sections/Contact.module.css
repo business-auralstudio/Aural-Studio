@@ -1,0 +1,95 @@
+.contact {
+  padding: var(--space-10) 0;
+  position: relative;
+  overflow: hidden;
+}
+.glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(212, 175, 90, 0.08), transparent 65%);
+  pointer-events: none;
+}
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+.info h2 {
+  font-weight: 700;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: var(--space-4);
+  line-height: 1.25;
+}
+.info h2.lang-ur {
+  line-height: 1.6;
+}
+.info p {
+  color: var(--text-secondary);
+  max-width: 46ch;
+  margin-bottom: var(--space-6);
+}
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+.note {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--gold-bright);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.note.lang-ur {
+  text-transform: none;
+  letter-spacing: 0;
+}
+.qr {
+  margin-top: var(--space-7);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: var(--space-4);
+  max-width: 320px;
+}
+.qr img {
+  border-radius: 8px;
+  background: white;
+  padding: 4px;
+}
+.qr span {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.formCard {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: var(--space-7);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .formCard {
+    padding: var(--space-5);
+  }
+}

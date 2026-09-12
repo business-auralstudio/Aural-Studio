@@ -1,0 +1,67 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: transform 250ms var(--ease-standard), box-shadow 250ms var(--ease-standard),
+    border-color 250ms var(--ease-standard), background 250ms var(--ease-standard);
+  will-change: transform;
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* One dominant CTA treatment — dark base, white text, gold only as edge/accent. */
+.primary {
+  background: var(--bg-elevated);
+  color: var(--white);
+  border-color: var(--border-gold);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+.primary::after {
+  content: "";
+}
+.primary:hover:not(:disabled),
+.primary:focus-visible:not(:disabled) {
+  transform: translateY(-3px);
+  border-color: var(--border-gold-strong);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 16px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(212, 175, 90, 0.15);
+}
+
+.outline {
+  background: transparent;
+  color: var(--gold-bright);
+  border-color: var(--border-gold);
+}
+.outline:hover:not(:disabled),
+.outline:focus-visible:not(:disabled) {
+  background: rgba(212, 175, 90, 0.08);
+  border-color: var(--border-gold-strong);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+  padding: 10px 6px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.ghost:hover:not(:disabled) {
+  color: var(--gold-bright);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary:hover:not(:disabled) {
+    transform: none;
+  }
+}

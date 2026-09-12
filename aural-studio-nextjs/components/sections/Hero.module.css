@@ -1,0 +1,91 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-9);
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(212, 175, 90, 0.08), transparent 60%),
+    var(--bg-primary);
+}
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  opacity: 0;
+  animation: fadeUp 700ms var(--ease-out) 100ms forwards;
+}
+.rule {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.eyebrow span:not(.rule) {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+.headline {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  line-height: 1.08;
+  opacity: 0;
+  animation: fadeUp 700ms var(--ease-out) 220ms forwards;
+}
+.headline.urdu-display {
+  line-height: 1.6;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+}
+.accent {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lead {
+  margin-top: var(--space-5);
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 52ch;
+  opacity: 0;
+  animation: fadeUp 700ms var(--ease-out) 340ms forwards;
+}
+.actions {
+  margin-top: var(--space-7);
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 700ms var(--ease-out) 460ms forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow,
+  .headline,
+  .lead,
+  .actions {
+    opacity: 1;
+    animation: none;
+  }
+}

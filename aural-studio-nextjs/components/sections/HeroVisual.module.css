@@ -1,0 +1,88 @@
+.stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: var(--perspective);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.scene {
+  position: relative;
+  width: min(60vw, 620px);
+  aspect-ratio: 1;
+  transform-style: preserve-3d;
+  transition: transform 400ms var(--ease-out);
+  animation: floatScene 8s ease-in-out infinite;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  transform-style: preserve-3d;
+}
+.ringOuter {
+  border-color: rgba(212, 175, 90, 0.18);
+  transform: rotateX(62deg) translateZ(0px);
+}
+.ringMid {
+  inset: 8%;
+  border-color: rgba(212, 175, 90, 0.3);
+  transform: rotateX(62deg) rotateZ(35deg) translateZ(30px);
+}
+.ringInner {
+  inset: 18%;
+  border-color: rgba(229, 192, 107, 0.45);
+  transform: rotateX(62deg) rotateZ(70deg) translateZ(60px);
+}
+
+.orb {
+  position: absolute;
+  inset: 34%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, var(--gold-bright), var(--gold) 45%, var(--gold-secondary) 75%, var(--bg-primary) 100%);
+  box-shadow: 0 0 60px rgba(212, 175, 90, 0.35), 0 0 120px rgba(212, 175, 90, 0.15),
+    inset -10px -10px 30px rgba(0, 0, 0, 0.35);
+  transform: translateZ(90px);
+}
+
+.grid {
+  position: absolute;
+  inset: -20%;
+  background-image: linear-gradient(rgba(212, 175, 90, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 90, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform: rotateX(75deg) translateZ(-80px);
+  mask-image: radial-gradient(circle at center, black, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at center, black, transparent 70%);
+}
+
+@keyframes floatScene {
+  0%,
+  100% {
+    transform: translateY(0px) rotateZ(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotateZ(1.5deg);
+  }
+}
+
+@media (max-width: 1023px) {
+  .stage {
+    opacity: 0.5;
+  }
+  .scene {
+    width: 80vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene {
+    animation: none;
+    transform: none !important;
+  }
+}

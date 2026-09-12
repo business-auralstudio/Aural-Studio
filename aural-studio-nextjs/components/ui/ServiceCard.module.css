@@ -1,0 +1,67 @@
+.card {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-gold);
+  border-radius: 14px;
+  padding: var(--space-6);
+  transform-style: preserve-3d;
+  transition: transform 300ms var(--ease-standard), border-color 300ms var(--ease-standard),
+    box-shadow 300ms var(--ease-standard);
+  will-change: transform;
+}
+.card:hover,
+.card:focus-visible {
+  border-color: var(--border-gold-strong);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 90, 0.12);
+}
+.number {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-6);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+html[dir="rtl"] .number {
+  right: auto;
+  left: var(--space-6);
+}
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-5);
+  color: var(--gold-bright);
+  transition: transform 300ms var(--ease-standard);
+}
+.card:hover .icon {
+  transform: translateZ(20px) scale(1.05);
+}
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+.card h3 {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: var(--space-3);
+}
+.card p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transform: none !important;
+  }
+  .card:hover .icon {
+    transform: none;
+  }
+}

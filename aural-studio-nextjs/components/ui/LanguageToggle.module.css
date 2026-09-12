@@ -1,0 +1,19 @@
+.toggle {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.toggle button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  transition: all 200ms var(--ease-standard);
+}
+.toggle button[aria-pressed="true"] {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-secondary));
+  color: #0a0a0a;
+}
